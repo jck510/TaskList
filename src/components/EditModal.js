@@ -1,25 +1,31 @@
 import React from 'react'
 import { useState } from 'react';
+import ModalBackdrop from './ModalBackdrop';
 
-const EditModal = ({ currentEditTask, processEdit }) => {
+const EditModal = ({ currentEditTask, processEdit, cancelEdit }) => {
 
+    const [id, setID] = useState(currentEditTask.id);
     const [text, setText] = useState(currentEditTask.text);
     const [day, setDay] = useState(currentEditTask.day);
     const [reminder, setReminder] = useState(currentEditTask.reminder);
 
 
     const onSubmit = (e) =>{
+        e.preventDefault();
         const updatedTask = {
+            id,
             text,
             day,
             reminder
         }
-        currentEditTask = updatedTask;
+        processEdit(updatedTask);
         
     }
 
 
     return (
+        <>
+        <ModalBackdrop cancelEdit={cancelEdit}/>
         <div className='edit-modal'>
             <h1>Edit Task</h1>
             <form className='edit-form' onSubmit={(e) => onSubmit(e)}>
@@ -66,6 +72,7 @@ const EditModal = ({ currentEditTask, processEdit }) => {
             </form>
             
         </div>
+        </>
     )
 }
 

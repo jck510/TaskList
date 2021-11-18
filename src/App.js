@@ -62,11 +62,30 @@ const editTask = (task) => {
   setCurrentEditTask(task);
   setIsInEditingState(true);
   
+}
 
+//processing an edited task to update the task
+const processEdit = (task) => {
 
+  setTasks(tasks.map(listTask => {
+    if(task.id === listTask.id){
+      const {text,day,reminder} = task; //object destructuring 
+      listTask.text = text;
+      listTask.day = day;
+      listTask.reminder = reminder;
+    }
+    return listTask;
+  }))
 
-  
+  setIsInEditingState(false);
+  setCurrentEditTask(null);
 
+  localStorage.setItem('tasksArray',JSON.stringify(tasks));
+}
+
+const cancelEdit = () => {
+  setIsInEditingState(false);
+  setCurrentEditTask(null);
 }
 
 // Toggle Reminder
@@ -84,7 +103,7 @@ const toggleReminder = (id) => {
 // && in the showAddTask line is short for a ternary with no else
   return (
     <>
-      {isInEditingState && <EditModal currentEditTask = {currentEditTask}/>}
+      {isInEditingState && <EditModal currentEditTask = {currentEditTask} processEdit={processEdit} cancelEdit={cancelEdit}/>}
       <div className="container">
         <Header onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask} isInEditingState={isInEditingState}/>
         {showAddTask && <AddTask onAdd={addTask}/>}
