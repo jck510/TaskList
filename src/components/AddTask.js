@@ -5,6 +5,7 @@ const AddTask = ({ onAdd }) => {
   const [text, setText] = useState('');
   const [day, setDay] = useState('');
   const [reminder, setReminder] = useState(false);
+  const [priority, setPriority] = useState('');
 
   const handleEditTask = (e) => {
 
@@ -14,16 +15,24 @@ const AddTask = ({ onAdd }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const task = {
-      text,
-      day,
-      reminder,
-    };
+    if(text === ''){
+      alert('Please enter in a Task');
+    }
+    else{
+      const task = {
+        text,
+        day,
+        reminder,
+        priority
+      };
+      
+      onAdd(task);
+      setText('');
+      setDay('');
+      setReminder(false);
+      setPriority('');
+    }
     
-    onAdd(task);
-    setText('');
-    setDay('');
-    setReminder(false);
   };
 
   return (
@@ -57,6 +66,15 @@ const AddTask = ({ onAdd }) => {
           value={reminder}
           onChange={(e) => setReminder(!reminder)}
         />
+      </div>
+      <div className='form-control form-control-select'>
+        <label>Priority</label>
+        <select name='priority' value={priority} onChange={(e) => setPriority(e.target.value)}>
+          <option value='0'>None</option>
+          <option value='1'>Low</option>
+          <option value='2'>Medium</option>
+          <option value='3'>High</option>
+        </select>
       </div>
 
       <input

@@ -1,6 +1,6 @@
-import { FaTimes, FaPen } from 'react-icons/fa'
+import { FaTimes, FaPen, FaFlag } from 'react-icons/fa'
 
-const Task = ({ task, onDelete, onToggle, onEdit }) => {
+const Task = ({ task, onDelete, onToggle, onEdit, priorityValue }) => {
 
     var tempString = '';
     var timeString = '';
@@ -94,6 +94,23 @@ const Task = ({ task, onDelete, onToggle, onEdit }) => {
     else{
         timeString = 'No Time Selected'
     }
+
+    // priority feature that will give the current task (no flag = no priority, blue flag = low, orange = medium, red = high )
+    let hasPriority = false;
+    let flagStyle;
+    
+    if(priorityValue == 1){
+        hasPriority = true;
+        flagStyle = {color: 'blue'};
+    }
+    else if(priorityValue == 2){
+        hasPriority = true;
+        flagStyle = {color: 'orange'};
+    }
+    else if(priorityValue == 3){
+        hasPriority = true;
+        flagStyle = {color: 'red'};
+    }
     
     return (
         <div className={`task ${task.reminder ? 'reminder' : ''}`} onDoubleClick={() => onToggle(task.id)}>
@@ -105,6 +122,7 @@ const Task = ({ task, onDelete, onToggle, onEdit }) => {
                 </div>
             </h3>
             <p>{timeString}</p>
+            {hasPriority && <FaFlag style={flagStyle}/>}
         </div>
     )
 }

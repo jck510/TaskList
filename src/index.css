@@ -120,6 +120,18 @@ body {
   justify-content: space-between;
 }
 
+
+.form-control-select {
+  display: flex;
+  align-items: center;
+  
+}
+
+.form-control-select label{
+  padding-right: 10px;
+  
+}
+
 .form-control-check label {
   flex: 1;
 }

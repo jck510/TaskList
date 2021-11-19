@@ -8,6 +8,7 @@ const EditModal = ({ currentEditTask, processEdit, cancelEdit }) => {
     const [text, setText] = useState(currentEditTask.text);
     const [day, setDay] = useState(currentEditTask.day);
     const [reminder, setReminder] = useState(currentEditTask.reminder);
+    const [priority, setPriority] = useState(currentEditTask.priority);
 
 
     const onSubmit = (e) =>{
@@ -16,7 +17,8 @@ const EditModal = ({ currentEditTask, processEdit, cancelEdit }) => {
             id,
             text,
             day,
-            reminder
+            reminder,
+            priority
         }
         processEdit(updatedTask);
         
@@ -60,6 +62,16 @@ const EditModal = ({ currentEditTask, processEdit, cancelEdit }) => {
                         onChange={(e) => setReminder(!reminder)}
                     />
 
+                </div>
+
+                <div className='form-control form-control-select'>
+                    <label>Priority</label>
+                    <select name='priority' value={priority} onChange={(e) => setPriority(e.target.value)}>
+                        <option value='0'>None</option>
+                        <option value='1'>Low</option>
+                        <option value='2'>Medium</option>
+                        <option value='3'>High</option>
+                    </select>
                 </div>
 
                 <input 

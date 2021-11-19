@@ -58,7 +58,6 @@ const deleteTask = (id) => {
 // Edit Task
 const editTask = (task) => {
 
-  console.log(task);
   setCurrentEditTask(task);
   setIsInEditingState(true);
   
@@ -69,10 +68,11 @@ const processEdit = (task) => {
 
   setTasks(tasks.map(listTask => {
     if(task.id === listTask.id){
-      const {text,day,reminder} = task; //object destructuring 
+      const {text,day,reminder,priority} = task; //object destructuring 
       listTask.text = text;
       listTask.day = day;
       listTask.reminder = reminder;
+      listTask.priority = priority;
     }
     return listTask;
   }))
