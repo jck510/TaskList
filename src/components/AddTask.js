@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FaFlag } from 'react-icons/fa'
 
 const AddTask = ({ onAdd }) => {
   // Hold the task state
@@ -19,6 +20,9 @@ const AddTask = ({ onAdd }) => {
       alert('Please enter in a Task');
     }
     else{
+      if(priority === ''){ //will automatically set the priority to no priority if user did not select an option
+        setPriority('0');
+      }
       const task = {
         text,
         day,
@@ -69,12 +73,12 @@ const AddTask = ({ onAdd }) => {
       </div>
       <div className='form-control form-control-select'>
         <label>Priority</label>
-        <select name='priority' value={priority} onChange={(e) => setPriority(e.target.value)}>
-          <option value='0'>None</option>
-          <option value='1'>Low</option>
-          <option value='2'>Medium</option>
-          <option value='3'>High</option>
-        </select>
+        
+        
+        <FaFlag color='blue' onClick={() => setPriority('1')} cursor='pointer' className='form-control-select-flag'/>
+        <FaFlag color='orange' onClick={() => setPriority('2')} cursor='pointer' className='form-control-select-flag'/>
+        <FaFlag color='red' onClick={() => setPriority('3')} cursor='pointer' className='form-control-select-flag' />
+
       </div>
 
       <input

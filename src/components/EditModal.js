@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import ModalBackdrop from './ModalBackdrop';
+import { FaFlag } from 'react-icons/fa';
 
 const EditModal = ({ currentEditTask, processEdit, cancelEdit }) => {
 
@@ -66,12 +67,9 @@ const EditModal = ({ currentEditTask, processEdit, cancelEdit }) => {
 
                 <div className='form-control form-control-select'>
                     <label>Priority</label>
-                    <select name='priority' value={priority} onChange={(e) => setPriority(e.target.value)}>
-                        <option value='0'>None</option>
-                        <option value='1'>Low</option>
-                        <option value='2'>Medium</option>
-                        <option value='3'>High</option>
-                    </select>
+                    <FaFlag color='blue' onClick={() => setPriority('1')} cursor='pointer' className='form-control-select-flag'/>
+                    <FaFlag color='orange' onClick={() => setPriority('2')} cursor='pointer' className='form-control-select-flag'/>
+                    <FaFlag color='red' onClick={() => setPriority('3')} cursor='pointer' className='form-control-select-flag' />
                 </div>
 
                 <input 

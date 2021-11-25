@@ -127,6 +127,10 @@ body {
   
 }
 
+.form-control-select-flag{
+  margin-right: 13px;
+}
+
 .form-control-select label{
   padding-right: 10px;
   
