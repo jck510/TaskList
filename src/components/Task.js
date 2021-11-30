@@ -99,15 +99,15 @@ const Task = ({ task, onDelete, onToggle, onEdit, priorityValue }) => {
     let hasPriority = false;
     let flagStyle;
     
-    if(priorityValue == 1){
+    if(priorityValue === '1'){
         hasPriority = true;
         flagStyle = {color: 'blue'};
     }
-    else if(priorityValue == 2){
+    else if(priorityValue === '2'){
         hasPriority = true;
         flagStyle = {color: 'orange'};
     }
-    else if(priorityValue == 3){
+    else if(priorityValue === '3'){
         hasPriority = true;
         flagStyle = {color: 'red'};
     }

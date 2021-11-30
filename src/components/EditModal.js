@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import ModalBackdrop from './ModalBackdrop';
-import { FaFlag } from 'react-icons/fa';
+import { FaFlag, FaBan } from 'react-icons/fa';
 
 const EditModal = ({ currentEditTask, processEdit, cancelEdit }) => {
 
@@ -67,9 +67,23 @@ const EditModal = ({ currentEditTask, processEdit, cancelEdit }) => {
 
                 <div className='form-control form-control-select'>
                     <label>Priority</label>
-                    <FaFlag color='blue' onClick={() => setPriority('1')} cursor='pointer' className='form-control-select-flag'/>
+
+                    <FaBan className='form-control-select-flag' color='grey' cursor='pointer' onClick={() => setPriority('0')}/>
+
+                    {priority === '1' ? <FaFlag color='blue' onClick={() => setPriority('1')} cursor='pointer' className='form-control-select-flag-selected'/> : <FaFlag color='blue' onClick={() => setPriority('1')} cursor='pointer' className='form-control-select-flag'/>}
+                    
+
+                    {priority === '2' ? <FaFlag color='orange' onClick={() => setPriority('2')} cursor='pointer' className='form-control-select-flag-selected'/> : <FaFlag color='orange' onClick={() => setPriority('2')} cursor='pointer' className='form-control-select-flag'/>}
+                    
+                    
+                    {priority === '3' ? <FaFlag color='red' onClick={() => setPriority('3')} cursor='pointer' className='form-control-select-flag-selected'/> : <FaFlag color='red' onClick={() => setPriority('3')} cursor='pointer' className='form-control-select-flag'/>}
+                    
+
+
+                    {/* <FaFlag color='blue' onClick={() => setPriority('1')} cursor='pointer' className='form-control-select-flag'/>
                     <FaFlag color='orange' onClick={() => setPriority('2')} cursor='pointer' className='form-control-select-flag'/>
-                    <FaFlag color='red' onClick={() => setPriority('3')} cursor='pointer' className='form-control-select-flag' />
+                    <FaFlag color='red' onClick={() => setPriority('3')} cursor='pointer' className='form-control-select-flag' /> */}
+            
                 </div>
 
                 <input 

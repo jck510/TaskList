@@ -131,6 +131,28 @@ body {
   margin-right: 13px;
 }
 
+.form-control-select-flag-selected {
+  margin-right: 13px;
+  border-radius: 2px;
+  outline: 1px solid black;
+  outline-offset: 2px;
+  
+}
+
+.form-control-select-tag {
+  color: darkcyan;
+  margin-right: 13px;
+
+}
+
+.form-control-select-tag-selected {
+  color: darkcyan;
+  margin-right: 13px;
+  border-radius: 2px;
+  outline: 1px solid black;
+  outline-offset: 2px;
+}
+
 .form-control-select label{
   padding-right: 10px;
   
