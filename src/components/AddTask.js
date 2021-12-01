@@ -108,10 +108,10 @@ const AddTask = ({ onAdd }) => {
         : 
         <FaGraduationCap className='form-control-select-tag' size='30px' cursor='pointer' onClick={() => setTag('school')}/>
         }
-        {tag === 'trip' ? 
-        <FaPlane className='form-control-select-tag-selected' size='30px' cursor='pointer' onClick={() => setTag('trip')}/> 
+        {tag === 'travel' ? 
+        <FaPlane className='form-control-select-tag-selected' size='30px' cursor='pointer' onClick={() => setTag('travel')}/> 
         : 
-        <FaPlane className='form-control-select-tag' size='30px' cursor='pointer' onClick={() => setTag('trip')}/>
+        <FaPlane className='form-control-select-tag' size='30px' cursor='pointer' onClick={() => setTag('travel')}/>
         }
         {tag === 'shopping' ? 
         <FaShoppingCart className='form-control-select-tag-selected' size='30px' cursor='pointer' onClick={() => setTag('shopping')}/> 

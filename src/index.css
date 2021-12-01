@@ -71,6 +71,14 @@ body {
   justify-content: space-between;
 }
 
+.task-priority-flag{
+  margin-left: 10px;
+}
+
+.task-tag {
+  color: darkcyan;
+}
+
 .edit-modal {
   position: fixed;
   background-color: whitesmoke;

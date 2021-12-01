@@ -1,6 +1,6 @@
-import { FaTimes, FaPen, FaFlag } from 'react-icons/fa'
+import { FaTimes, FaPen, FaFlag, FaClinicMedical, FaShoppingCart, FaCommentDots, FaGlassCheers, FaHamburger, FaGraduationCap, FaFutbol, FaPlane } from 'react-icons/fa'
 
-const Task = ({ task, onDelete, onToggle, onEdit, priorityValue }) => {
+const Task = ({ task, onDelete, onToggle, onEdit }) => {
 
     var tempString = '';
     var timeString = '';
@@ -99,30 +99,48 @@ const Task = ({ task, onDelete, onToggle, onEdit, priorityValue }) => {
     let hasPriority = false;
     let flagStyle;
     
-    if(priorityValue === '1'){
+    if(task.priority === '1'){
         hasPriority = true;
         flagStyle = {color: 'blue'};
     }
-    else if(priorityValue === '2'){
+    else if(task.priority === '2'){
         hasPriority = true;
         flagStyle = {color: 'orange'};
     }
-    else if(priorityValue === '3'){
+    else if(task.priority === '3'){
         hasPriority = true;
         flagStyle = {color: 'red'};
     }
     
+    
     return (
         <div className={`task ${task.reminder ? 'reminder' : ''}`} onDoubleClick={() => onToggle(task.id)}>
-            <h3>{task.text} 
+            
+            
+            <h3>{task.text}
+                
                 <div>
                     <FaPen style={{ color: 'green', cursor: 'pointer'}} className='icon-div' onClick={() => onEdit(task)} />
                     <FaTimes style={{ color: 'red', cursor: 'pointer', marginLeft:'12px'}} 
                     onClick={() => onDelete(task.id)} className = 'icon-div' />
                 </div>
             </h3>
-            <p>{timeString}</p>
-            {hasPriority && <FaFlag style={flagStyle}/>}
+            <p>
+                {timeString}
+                {hasPriority && <FaFlag style={flagStyle} className='task-priority-flag'/>}
+            </p>
+
+            {task.tag === 'medical' && <FaClinicMedical size='25px' className='task-tag'/>}
+            {task.tag === 'school' && <FaGraduationCap size='25px' className='task-tag'/>}
+            {task.tag === 'travel' && <FaPlane size='25px' className='task-tag'/>}
+            {task.tag === 'shopping' && <FaShoppingCart size='25px' className='task-tag'/>}
+            {task.tag === 'social' && <FaCommentDots size='25px' className='task-tag'/>}
+            {task.tag === 'food' && <FaHamburger size='25px' className='task-tag'/>}
+            {task.tag === 'drinks' && <FaGlassCheers size='25px' className='task-tag'/>}
+            {task.tag === 'sports' && <FaFutbol size='25px' className='task-tag'/>}
+
+            
+            
         </div>
     )
 }

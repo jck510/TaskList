@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import ModalBackdrop from './ModalBackdrop';
-import { FaFlag, FaBan } from 'react-icons/fa';
+import { FaFlag, FaBan, FaClinicMedical, FaShoppingCart, FaCommentDots, FaGlassCheers, FaHamburger, FaGraduationCap, FaFutbol, FaPlane } from 'react-icons/fa';
 
 const EditModal = ({ currentEditTask, processEdit, cancelEdit }) => {
 
@@ -10,6 +10,7 @@ const EditModal = ({ currentEditTask, processEdit, cancelEdit }) => {
     const [day, setDay] = useState(currentEditTask.day);
     const [reminder, setReminder] = useState(currentEditTask.reminder);
     const [priority, setPriority] = useState(currentEditTask.priority);
+    const [tag, setTag] = useState(currentEditTask.tag);
 
 
     const onSubmit = (e) =>{
@@ -19,7 +20,8 @@ const EditModal = ({ currentEditTask, processEdit, cancelEdit }) => {
             text,
             day,
             reminder,
-            priority
+            priority,
+            tag
         }
         processEdit(updatedTask);
         
@@ -85,6 +87,57 @@ const EditModal = ({ currentEditTask, processEdit, cancelEdit }) => {
                     <FaFlag color='red' onClick={() => setPriority('3')} cursor='pointer' className='form-control-select-flag' /> */}
             
                 </div>
+
+                <div className='form-control form-control-select'>
+
+                <label>Tags</label>
+
+                <FaBan className='form-control-select-tag' color='grey' size='22px' cursor='pointer' onClick={() => setTag('')}/>
+                {tag === 'medical' ? 
+                <FaClinicMedical className='form-control-select-tag-selected' size='30px' cursor='pointer' onClick={() => setTag('medical')}/> 
+                : 
+                <FaClinicMedical className='form-control-select-tag' size='30px' cursor='pointer' onClick={() => setTag('medical')}/>
+                }
+                {tag === 'school' ? 
+                <FaGraduationCap className='form-control-select-tag-selected' size='30px' cursor='pointer' onClick={() => setTag('school')}/> 
+                : 
+                <FaGraduationCap className='form-control-select-tag' size='30px' cursor='pointer' onClick={() => setTag('school')}/>
+                }
+                {tag === 'travel' ? 
+                <FaPlane className='form-control-select-tag-selected' size='30px' cursor='pointer' onClick={() => setTag('travel')}/> 
+                : 
+                <FaPlane className='form-control-select-tag' size='30px' cursor='pointer' onClick={() => setTag('travel')}/>
+                }
+                {tag === 'shopping' ? 
+                <FaShoppingCart className='form-control-select-tag-selected' size='30px' cursor='pointer' onClick={() => setTag('shopping')}/> 
+                : 
+                <FaShoppingCart className='form-control-select-tag' size='30px' cursor='pointer' onClick={() => setTag('shopping')}/>
+                }
+                {tag === 'social' ? 
+                <FaCommentDots className='form-control-select-tag-selected' size='30px' cursor='pointer' onClick={() => setTag('social')}/> 
+                : 
+                <FaCommentDots className='form-control-select-tag' size='30px' cursor='pointer' onClick={() => setTag('social')}/>
+                }
+                {tag === 'food' ? 
+                <FaHamburger className='form-control-select-tag-selected' size='30px' cursor='pointer' onClick={() => setTag('food')}/> 
+                : 
+                <FaHamburger className='form-control-select-tag' size='30px' cursor='pointer' onClick={() => setTag('food')}/>
+                }
+                {tag === 'drinks' ? 
+                <FaGlassCheers className='form-control-select-tag-selected' size='30px' cursor='pointer' onClick={() => setTag('drinks')}/> 
+                : 
+                <FaGlassCheers className='form-control-select-tag' size='30px' cursor='pointer' onClick={() => setTag('drinks')}/>
+                }
+                {tag === 'sports' ? 
+                <FaFutbol className='form-control-select-tag-selected' size='30px' cursor='pointer' onClick={() => setTag('sports')}/> 
+                : 
+                <FaFutbol className='form-control-select-tag' size='30px' cursor='pointer' onClick={() => setTag('sports')}/>
+                }
+                
+
+
+
+            </div>
 
                 <input 
                     type='submit'

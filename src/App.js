@@ -38,6 +38,9 @@ const addTask = (task) => {
 
   oldTasks.push(newTask);
 
+  oldTasks.sort(function(a,b){return a.priority - b.priority});
+  oldTasks.reverse();
+
   localStorage.setItem('tasksArray', JSON.stringify(oldTasks));
 
   setTasks(oldTasks);
@@ -66,19 +69,25 @@ const editTask = (task) => {
 //processing an edited task to update the task
 const processEdit = (task) => {
 
-  setTasks(tasks.map(listTask => {
+  tasks.map(listTask => {
     if(task.id === listTask.id){
-      const {text,day,reminder,priority} = task; //object destructuring 
+      const {text,day,reminder,priority,tag} = task; //object destructuring 
       listTask.text = text;
       listTask.day = day;
       listTask.reminder = reminder;
       listTask.priority = priority;
+      listTask.tag = tag;
     }
     return listTask;
-  }))
+  })
 
   setIsInEditingState(false);
   setCurrentEditTask(null);
+
+  tasks.sort(function(a,b){return a.priority - b.priority || a.text - b.text});
+  tasks.reverse();
+
+  setTasks(tasks); //changes the state of the tasks
 
   localStorage.setItem('tasksArray',JSON.stringify(tasks));
 }
