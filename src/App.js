@@ -38,7 +38,27 @@ const addTask = (task) => {
 
   oldTasks.push(newTask);
 
-  oldTasks.sort(function(a,b){return a.priority - b.priority});
+  oldTasks.sort((a,b) => {
+    if(a.priority === b.priority){
+      
+      //Next time going to fix the issue where invalid dates are improperly sorted
+      const aDate = new Date(a.day);
+      const bDate = new Date(b.day);
+
+      if(aDate > bDate){
+        return -1;
+      }
+      else if(aDate < bDate){
+        return 1;
+      }
+      else if(aDate === bDate){
+        return 0;
+      }
+    }
+    else{
+      return a.priority - b.priority;
+    }
+  });
   oldTasks.reverse();
 
   localStorage.setItem('tasksArray', JSON.stringify(oldTasks));
@@ -84,7 +104,28 @@ const processEdit = (task) => {
   setIsInEditingState(false);
   setCurrentEditTask(null);
 
-  tasks.sort(function(a,b){return a.priority - b.priority || a.text - b.text});
+  
+  tasks.sort((a,b) => {
+    if(a.priority === b.priority){
+      
+      //Next time going to fix the issue where invalid dates are improperly sorted
+      const aDate = new Date(a.day);
+      const bDate = new Date(b.day);
+
+      if(aDate > bDate){
+        return -1;
+      }
+      else if(aDate < bDate){
+        return 1;
+      }
+      else if(aDate === bDate){
+        return 0;
+      }
+    }
+    else{
+      return a.priority - b.priority;
+    }
+  });
   tasks.reverse();
 
   setTasks(tasks); //changes the state of the tasks
