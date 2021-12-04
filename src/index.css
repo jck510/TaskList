@@ -179,3 +179,28 @@ footer {
   margin-top: 30px;
   text-align: center;
 }
+
+.filter-tabs-div {
+  display: flex;
+  margin-left:10px;
+}
+
+.filter-tab {
+  background-color: darkcyan;
+  color: white;
+  border-top-left-radius: 15%;
+  border-top-right-radius: 15%;
+  margin-right: 2px;
+  outline: 1px solid black;
+  padding: 5px;
+}
+
+.filter-tab-selected {
+  background-color: darkcyan;
+  color: lightgrey;
+  border-top-left-radius: 15%;
+  border-top-right-radius: 15%;
+  margin-right: 2px;
+  outline: 1px solid black;
+  padding: 5px;
+}
