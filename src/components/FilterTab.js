@@ -5,7 +5,6 @@ import { FaRegFlag,FaRegCalendarAlt,FaClinicMedical, FaShoppingCart, FaCommentDo
 const FilterTab = ({ tabType, currentSelectedFilter, processFilterChange }) => {
 
     const [classState, setClassState] = useState('filter-tab');
-    
 
 
     const toggleSelectedClass = () => {
@@ -17,22 +16,36 @@ const FilterTab = ({ tabType, currentSelectedFilter, processFilterChange }) => {
         }
     }
 
+
+
     const toggleOnClick = () => {
         // want to make it so if one filter is selected then another filter cannot be selected at the same time
+        
+        if(currentSelectedFilter === tabType){ //unselecting filter
+            processFilterChange('');
+            //setClassState('filter-tab-selected');
+        }
+        else{ //selecting filter
+            processFilterChange(tabType); //sets the current filter as the tab type
+            //setClassState('filter-tab');
+        }
+
+        
+    
     }
 
     return (
         <div>
             {tabType === 'flag' && 
             <FaRegFlag className={classState} size='40px' 
-                onClick={() => toggleSelectedClass()} 
+                onClick={() => toggleOnClick()} 
                 onMouseOver={() => toggleSelectedClass()} 
                 onMouseOut={() => toggleSelectedClass()} 
                 cursor='pointer'/>
             }
             {tabType === 'calendar' && 
             <FaRegCalendarAlt className={classState} size='40px'
-                onClick={() => toggleSelectedClass()} 
+                onClick={() => toggleOnClick()} 
                 onMouseOver={() => toggleSelectedClass()} 
                 onMouseOut={() => toggleSelectedClass()} 
                 cursor='pointer'/>
@@ -41,7 +54,7 @@ const FilterTab = ({ tabType, currentSelectedFilter, processFilterChange }) => {
             <FaClinicMedical 
                 className={classState} 
                 size='40px'
-                onClick={() => toggleSelectedClass()} 
+                onClick={() => toggleOnClick()} 
                 onMouseOver={() => toggleSelectedClass()} 
                 onMouseOut={() => toggleSelectedClass()} 
                 cursor='pointer'/>
@@ -50,7 +63,7 @@ const FilterTab = ({ tabType, currentSelectedFilter, processFilterChange }) => {
             <FaGraduationCap 
                 className={classState} 
                 size='40px'
-                onClick={() => toggleSelectedClass()} 
+                onClick={() => toggleOnClick()} 
                 onMouseOver={() => toggleSelectedClass()} 
                 onMouseOut={() => toggleSelectedClass()} 
                 cursor='pointer'/>
@@ -59,7 +72,7 @@ const FilterTab = ({ tabType, currentSelectedFilter, processFilterChange }) => {
             <FaPlane 
                 className={classState} 
                 size='40px'
-                onClick={() => toggleSelectedClass()} 
+                onClick={() => toggleOnClick()} 
                 onMouseOver={() => toggleSelectedClass()} 
                 onMouseOut={() => toggleSelectedClass()} 
                 cursor='pointer'/>
@@ -68,7 +81,7 @@ const FilterTab = ({ tabType, currentSelectedFilter, processFilterChange }) => {
             <FaShoppingCart 
                 className={classState} 
                 size='40px'
-                onClick={() => toggleSelectedClass()} 
+                onClick={() => toggleOnClick()} 
                 onMouseOver={() => toggleSelectedClass()} 
                 onMouseOut={() => toggleSelectedClass()} 
                 cursor='pointer'/>
@@ -77,7 +90,7 @@ const FilterTab = ({ tabType, currentSelectedFilter, processFilterChange }) => {
             <FaCommentDots 
                 className={classState} 
                 size='40px'
-                onClick={() => toggleSelectedClass()} 
+                onClick={() => toggleOnClick()} 
                 onMouseOver={() => toggleSelectedClass()} 
                 onMouseOut={() => toggleSelectedClass()} 
                 cursor='pointer'/>
@@ -86,7 +99,7 @@ const FilterTab = ({ tabType, currentSelectedFilter, processFilterChange }) => {
             <FaHamburger 
                 className={classState} 
                 size='40px'
-                onClick={() => toggleSelectedClass()} 
+                onClick={() => toggleOnClick()} 
                 onMouseOver={() => toggleSelectedClass()} 
                 onMouseOut={() => toggleSelectedClass()} 
                 cursor='pointer'/>
@@ -95,7 +108,7 @@ const FilterTab = ({ tabType, currentSelectedFilter, processFilterChange }) => {
             <FaGlassCheers 
                 className={classState} 
                 size='40px'
-                onClick={() => toggleSelectedClass()} 
+                onClick={() => toggleOnClick()} 
                 onMouseOver={() => toggleSelectedClass()} 
                 onMouseOut={() => toggleSelectedClass()} 
                 cursor='pointer'/>
@@ -104,7 +117,7 @@ const FilterTab = ({ tabType, currentSelectedFilter, processFilterChange }) => {
             <FaFutbol 
                 className={classState} 
                 size='40px'
-                onClick={() => toggleSelectedClass()} 
+                onClick={() => toggleOnClick()} 
                 onMouseOver={() => toggleSelectedClass()} 
                 onMouseOut={() => toggleSelectedClass()} 
                 cursor='pointer'/>

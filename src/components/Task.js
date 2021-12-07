@@ -5,6 +5,7 @@ const Task = ({ task, onDelete, onToggle, onEdit }) => {
     var tempString = '';
     var timeString = '';
     var month = '';
+    //console.log(task.day);
     if(task.day){
         tempString = JSON.stringify(task.day);
         switch(parseInt(tempString[6] + tempString[7])){
