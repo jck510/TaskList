@@ -37,14 +37,14 @@ const FilterTab = ({ tabType, currentSelectedFilter, processFilterChange }) => {
     return (
         <div>
             {tabType === 'flag' && 
-            <FaRegFlag className={classState} size='40px' 
+            <FaRegFlag className={currentSelectedFilter === tabType? 'filter-tab-selected' : classState} size='40px' 
                 onClick={() => toggleOnClick()} 
                 onMouseOver={() => toggleSelectedClass()} 
                 onMouseOut={() => toggleSelectedClass()} 
                 cursor='pointer'/>
             }
             {tabType === 'calendar' && 
-            <FaRegCalendarAlt className={classState} size='40px'
+            <FaRegCalendarAlt className={currentSelectedFilter === tabType? 'filter-tab-selected' : classState} size='40px'
                 onClick={() => toggleOnClick()} 
                 onMouseOver={() => toggleSelectedClass()} 
                 onMouseOut={() => toggleSelectedClass()} 
@@ -52,7 +52,7 @@ const FilterTab = ({ tabType, currentSelectedFilter, processFilterChange }) => {
             }
             {tabType === 'medical' && 
             <FaClinicMedical 
-                className={classState} 
+                className={currentSelectedFilter === tabType? 'filter-tab-selected' : classState} 
                 size='40px'
                 onClick={() => toggleOnClick()} 
                 onMouseOver={() => toggleSelectedClass()} 
@@ -61,7 +61,7 @@ const FilterTab = ({ tabType, currentSelectedFilter, processFilterChange }) => {
             }
             {tabType === 'school' && 
             <FaGraduationCap 
-                className={classState} 
+                className={currentSelectedFilter === tabType? 'filter-tab-selected' : classState} 
                 size='40px'
                 onClick={() => toggleOnClick()} 
                 onMouseOver={() => toggleSelectedClass()} 
@@ -70,7 +70,7 @@ const FilterTab = ({ tabType, currentSelectedFilter, processFilterChange }) => {
             }
             {tabType === 'travel' && 
             <FaPlane 
-                className={classState} 
+                className={currentSelectedFilter === tabType? 'filter-tab-selected' : classState} 
                 size='40px'
                 onClick={() => toggleOnClick()} 
                 onMouseOver={() => toggleSelectedClass()} 
@@ -79,7 +79,7 @@ const FilterTab = ({ tabType, currentSelectedFilter, processFilterChange }) => {
             }
             {tabType === 'shopping' && 
             <FaShoppingCart 
-                className={classState} 
+                className={currentSelectedFilter === tabType? 'filter-tab-selected' : classState} 
                 size='40px'
                 onClick={() => toggleOnClick()} 
                 onMouseOver={() => toggleSelectedClass()} 
@@ -88,7 +88,7 @@ const FilterTab = ({ tabType, currentSelectedFilter, processFilterChange }) => {
             }
             {tabType === 'social' && 
             <FaCommentDots 
-                className={classState} 
+                className={currentSelectedFilter === tabType? 'filter-tab-selected' : classState} 
                 size='40px'
                 onClick={() => toggleOnClick()} 
                 onMouseOver={() => toggleSelectedClass()} 
@@ -97,7 +97,7 @@ const FilterTab = ({ tabType, currentSelectedFilter, processFilterChange }) => {
             }
             {tabType === 'food' && 
             <FaHamburger 
-                className={classState} 
+                className={currentSelectedFilter === tabType? 'filter-tab-selected' : classState} 
                 size='40px'
                 onClick={() => toggleOnClick()} 
                 onMouseOver={() => toggleSelectedClass()} 
@@ -106,7 +106,7 @@ const FilterTab = ({ tabType, currentSelectedFilter, processFilterChange }) => {
             }
             {tabType === 'drinks' && 
             <FaGlassCheers 
-                className={classState} 
+                className={currentSelectedFilter === tabType? 'filter-tab-selected' : classState} 
                 size='40px'
                 onClick={() => toggleOnClick()} 
                 onMouseOver={() => toggleSelectedClass()} 
@@ -115,7 +115,7 @@ const FilterTab = ({ tabType, currentSelectedFilter, processFilterChange }) => {
             }
             {tabType === 'sports' && 
             <FaFutbol 
-                className={classState} 
+                className={currentSelectedFilter === tabType? 'filter-tab-selected' : classState} 
                 size='40px'
                 onClick={() => toggleOnClick()} 
                 onMouseOver={() => toggleSelectedClass()} 

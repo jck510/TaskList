@@ -82,7 +82,14 @@ const Task = ({ task, onDelete, onToggle, onEdit }) => {
         var hour = parseInt(tempString[12] + tempString[13]);
         var minute = tempString[15] + tempString[16];
         var year = tempString[1] + tempString[2] + tempString[3] + tempString[4];
-        if((hour / 12) > 1){
+        if(hour === 0){
+            hour = 12;
+            amOrPm = 'AM';
+        }
+        else if(hour === 12){
+            amOrPm = 'PM';
+        }
+        else if((hour / 12) > 1){
             hour = hour % 12; //will mod 12
             amOrPm = 'PM';
         }

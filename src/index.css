@@ -197,7 +197,7 @@ footer {
 
 .filter-tab-selected {
   background-color: darkcyan;
-  color: lightgrey;
+  color: rgb(185, 185, 185);
   border-top-left-radius: 15%;
   border-top-right-radius: 15%;
   margin-right: 2px;

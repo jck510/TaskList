@@ -11,10 +11,33 @@ const Tasks = ({ tasks, onDelete, onToggle, onEdit,  }) => {
         
         setCurrentSelectedFilter(newFilter);
         if(newFilter === 'flag'){
-            setTasksList(tasks.filter((task) => task.priority > 0));
+            const flagFilteredTasks = tasks.filter((task) => task.priority > 0);
+            flagFilteredTasks.sort((a,b) => {
+                return b.priority - a.priority;
+            });
+            setTasksList(flagFilteredTasks);
         }
         else if(newFilter === 'calendar'){
-            setTasksList(tasks.filter((task) => task.day !== ''));
+            const dateFilteredTasks = tasks.filter((task) => task.day !== '');
+            dateFilteredTasks.sort((a,b) => {
+                console.log('A',a.day);
+                console.log('B',b.day);
+                if(a.day > b.day){
+                    //console.log('A is greater than B');
+                    return 1;
+                }
+                else if(a.day < b.day){
+                    //console.log('B is greater than A');
+                    return -1;
+                }
+                else if(a.day === b.day){
+                    //console.log('A is Equal to B');
+                    return 0;
+                }
+                
+                
+            });
+            setTasksList(dateFilteredTasks);
         }
         else{
             setTasksList(tasks.filter((task) => task.tag === newFilter));

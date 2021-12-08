@@ -38,29 +38,6 @@ const addTask = (task) => {
 
   oldTasks.push(newTask);
 
-  oldTasks.sort((a,b) => {
-    if(a.priority === b.priority){
-      
-      //Next time going to fix the issue where invalid dates are improperly sorted
-      const aDate = new Date(a.day);
-      const bDate = new Date(b.day);
-
-      if(aDate > bDate){
-        return -1;
-      }
-      else if(aDate < bDate){
-        return 1;
-      }
-      else if(aDate === bDate){
-        return 0;
-      }
-    }
-    else{
-      return a.priority - b.priority;
-    }
-  });
-  oldTasks.reverse();
-
   localStorage.setItem('tasksArray', JSON.stringify(oldTasks));
 
   setTasks(oldTasks);
